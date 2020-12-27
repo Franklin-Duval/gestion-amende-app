@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
+
+import Home from './components/home'
+import Amende from './components/amende'
+import Usager from './components/liste_usager'
+import Infraction from './components/infraction'
+import Login from './components/login'
+import RegisterUser from './components/registration_user'
+import RegisterPolice from './components/registration_policier'
+import ListInfraction from './components/liste_infraction'
+import Navigation from './components/navigation_bar'
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+		<BrowserRouter>
+			<Navigation />
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route path="/login" component={Login} />
+				<Route path="/register_user" component={RegisterUser} />
+				<Route path="/register_police" component={RegisterPolice} />
+				<Route path="/infraction" component={Infraction} />
+				<Route path="/amende" component={Amende} />
+				<Route path="/usager" component={Usager} />
+				<Route path="/all_infractions" component={ListInfraction} />
+			</Switch>
+		</BrowserRouter>
+    );
 }
 
 export default App;
