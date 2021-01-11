@@ -1,0 +1,82 @@
+
+.body{
+    background-image: url("../images/back.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form{
+    background-image: linear-gradient(to right, #673ab7, #4527a0);
+    width: 600px;
+    padding: 50px;
+    padding-top: 100px;
+    
+}
+
+.text-field{
+    height: 45px;
+    width: 450px;
+    padding: 20px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid white;
+    margin-bottom: 30px;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    background: transparent;
+    color: white;
+}
+
+.text-field::placeholder{
+    color: white;
+    opacity: 0.7;
+}
+
+.button{
+    height: 60px;
+    border-radius: 30px;
+    font-size: 25px;
+    color: white;
+    background-image: linear-gradient(to right, #ff4081, #b702ff);
+    
+}
+
+.button:hover{
+    background-image: linear-gradient(to right, #b702ff, #ff4081);
+}
+
+.dropdown{
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    width: 450px;
+    height: 45px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid white;
+    margin-bottom: 30px;
+}
+
+.dropdown:focus{
+    color: black;
+}
+
+.datepicker{
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    width: 450px;
+    height: 45px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid white;
+    margin-bottom: 30px;
+}

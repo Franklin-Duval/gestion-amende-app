@@ -1,9 +1,10 @@
 .navbar{
-	background-image: linear-gradient(to right, black, black);
+	background-image: linear-gradient(to right, #673ab7, #4527a0);
 }
 
 .navbar-nav li{
 	padding: 0 10px;
+	margin-top: 5px;
 }
 
 .navbar-nav li a{
