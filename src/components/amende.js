@@ -57,18 +57,18 @@ export default class Amande extends React.Component{
                 </div>
                 <table className="table table-hover">
                     <thead>
-                        <tr>
-                            <th scope="col">#ID</th>
-                            <th scope="col">Amende</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Pénalité (FCFA) </th>
+                        <tr className="table-row">
+                            <th className="table-head" scope="col">#ID</th>
+                            <th className="table-head" scope="col">Amende</th>
+                            <th className="table-head" scope="col">Description</th>
+                            <th className="table-head" scope="col">Pénalité (FCFA) </th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             this.state.amende.map((item, index) => {
                                 return(
-                                    <tr key={index}>
+                                    <tr className="table-row" key={index}>
                                         <td className="id">{item.id} </td>
                                         <td>{item.nom_amende} </td>
                                         <td>{item.desciption} </td>

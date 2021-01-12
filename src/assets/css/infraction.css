@@ -33,17 +33,13 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-}
+} 
 
 .infraction-number {
-  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 36px;
   line-height: 75px;
-  display: flex;
-  align-items: center;
   text-align: center;
-
   color: #000000;
 }

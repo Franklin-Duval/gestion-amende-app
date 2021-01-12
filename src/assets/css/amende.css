@@ -1,14 +1,14 @@
 
-th{
+.table-head{
     background-color: #673ab7;
     color: white;
     font-size: 20px;
-    font-family: 'Times New Roman';
+    font-family: 'Roboto';
 }
 
-tr{
+.table-row{
     font-size: 20px;
-    font-family: 'Times New Roman';
+    font-family: 'Roboto';
 }
 
 .id{
