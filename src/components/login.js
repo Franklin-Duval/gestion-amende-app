@@ -9,26 +9,23 @@ export default class Login extends React.Component{
     state = {
         user_name: "",
         password: "",
+        type: "",
 
         finish: false,
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch(API_URL + 'bd_police/', {
+        fetch(API_URL + 'auth-login/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                matricule: this.state.matricule,
-                name: this.state.name,
-                surename: this.state.surename,
-                contact: this.state.contact,
-                email: this.state.email,
-                level: this.state.level,
-                department: this.state.department,
+                username: this.state.user_name,
+                password: this.state.password,
+                type: this.state.type,
             })
 
         })
@@ -45,7 +42,7 @@ export default class Login extends React.Component{
     render(){
         return(
             <div className="container-fluid body" >
-                <form onSubmit={(event) => this.handleSubmit(event)} >
+                <form className="forms" onSubmit={(event) => this.handleSubmit(event)} >
                     <img src={logo} alt="" style={{width: 150, height: 150, borderRadius: 75, marginLeft: 175, marginBottom: 70}} />
                     <div className="form-group">
                         <input 
@@ -69,6 +66,18 @@ export default class Login extends React.Component{
                                 this.setState({password: event.target.value})
                             }}
                         />
+                    </div>
+
+                    <div className="form-group">
+                        <select 
+                            className="dropdown" 
+                            id="statut"
+                            onChange={(event) => this.setState({type: event.target.value})}
+                        >
+                            <option>Statut</option>
+                            <option value={"admin"}>Admin</option>
+                            <option value={"policier"}>Policier</option>
+                        </select>
                     </div>
                     
                     <div style={{marginBottom: 30, marginTop: 50}} >

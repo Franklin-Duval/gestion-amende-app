@@ -25,6 +25,7 @@ tr{
     border-radius: 25px;
     font-family: 'Times New Roman';
     font-size: 20px;
+    padding: 10px;
 }
 
 .ajouter:hover{

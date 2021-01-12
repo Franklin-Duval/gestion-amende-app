@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Register_User extends React.Component{
+export default class Detail_Usager extends React.Component{
 
     render(){
         return(

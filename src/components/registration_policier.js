@@ -29,20 +29,25 @@ export default class Register_Police extends React.Component{
 
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch(API_URL + 'bd_police/', {
+        fetch(API_URL + 'policier/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                matricule: this.state.matricule,
-                name: this.state.name,
-                surename: this.state.surename,
+                CNI: this.state.CNI,
+                nom: this.state.nom,
+                prenom: this.state.prenom,
+                adresse: this.state.adresse,
                 contact: this.state.contact,
+                date_naissance: this.state.date_naissance,
+                age: this.state.age,
+                statut_matrimoniale: this.state.statut_mat,
+                num_identification: this.state.num_identification,
+                user_name: this.state.user_name,
                 email: this.state.email,
-                level: this.state.level,
-                department: this.state.department,
+                password: this.state.password,
             })
 
         })
@@ -56,11 +61,18 @@ export default class Register_Police extends React.Component{
         })
     }
 
+    formatDate = (date) => {
+        let month = '' + (date.getMonth() + 1)
+        
+
+        return month
+    }
+
     render(){
         
             return(
                 <div className="container-fluid body" >                        
-                    <form onSubmit={(event) => this.handleSubmit(event)} >
+                    <form className="forms" onSubmit={(event) => this.handleSubmit(event)} >
                         {
                             this.state.firstPage ?
 

@@ -34,15 +34,15 @@ export default class Home extends React.Component{
                     <div className="row">
                         <div className="col-md-4" style={styles.service}>
                             <img src={im1} alt="" width={150} height={150} />
-                            <Link to="/infraction" style={styles.link} >Inscription Usager</Link>
+                            <Link to="/register_user" style={styles.link} >Inscription Usager</Link>
                         </div>
                         <div className="col-md-4" style={styles.service}>
                             <img src={im2} alt="" width={150} height={150} />
-                            <Link to="/infraction" style={styles.link} >Inscription Usager</Link>
+                            <Link to="/register_police" style={styles.link} >Inscription Policier</Link>
                         </div>
                         <div className="col-md-4" style={styles.service}>
                             <img src={im3} alt="" width={150} height={150} />
-                            <Link to="/infraction" style={styles.link} >Inscription Usager</Link>
+                            <Link to="/usager" style={styles.link} >Liste Usager</Link>
                         </div>
                     </div>
                 </div>

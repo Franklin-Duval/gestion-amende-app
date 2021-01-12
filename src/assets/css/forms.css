@@ -10,7 +10,7 @@
     background-size: cover;
 }
 
-form{
+.forms{
     background-image: linear-gradient(to right, #673ab7, #4527a0);
     width: 600px;
     padding: 50px;
