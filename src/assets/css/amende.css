@@ -1,0 +1,33 @@
+
+th{
+    background-color: #673ab7;
+    color: white;
+    font-size: 20px;
+    font-family: 'Times New Roman';
+}
+
+tr{
+    font-size: 20px;
+    font-family: 'Times New Roman';
+}
+
+.id{
+    font-weight: bold;
+}
+
+.ajouter{
+    width: 250px;
+    height: 50px;
+    color: white;
+    float: right;
+    margin: 20px;
+    background-color: #673ab7;
+    border-radius: 25px;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    padding: 10px;
+}
+
+.ajouter:hover{
+    background-color: #cf1ecf;
+}
