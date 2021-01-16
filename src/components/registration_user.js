@@ -1,6 +1,6 @@
 import React from 'react'
 import DatePicker from "react-datepicker"
-//import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import API_URL from '../assets/constant'
 import '../assets/css/forms.css'
@@ -15,10 +15,11 @@ export default class Register_User extends React.Component{
         prenom: "",
         contact: "",
         adresse: "",
-        date_naissance: new Date(),
+        date_naissance: "",
         age: "",
         statut_mat: "",
 
+        calendar_date: new Date(),
         finish: false,
     }
 
@@ -32,29 +33,48 @@ export default class Register_User extends React.Component{
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                matricule: this.state.matricule,
-                name: this.state.name,
-                surename: this.state.surename,
+                CNI: this.state.CNI,
+                nom: this.state.nom,
+                prenom: this.state.prenom,
+                adresse: this.state.adresse,
                 contact: this.state.contact,
-                email: this.state.email,
-                level: this.state.level,
-                department: this.state.department,
+                date_naissance: this.state.date_naissance,
+                age: this.state.age,
+                statut_matrimoniale: this.state.statut_mat,
             })
 
         })
         .then((response) => response.json())
         .then((responseJson) => {
             console.log(responseJson)
-
+            this.setState({finish: true})
         })
         .catch((error) =>{
             console.log(error)
         })
     }
 
+    
+    formatDate = (days, months, years) => {
+        let month = '' + (months + 1)
+        let day = '' + days
+        let year = years
+
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+
+        return year + '-' + month + '-' + day
+    }
+
     render(){
         
             return(
+                this.state.finish
+                ?
+                <Redirect to="/infraction" />
+                :
                 <div className="container-fluid body" >
                     <form className="forms" onSubmit={(event) => this.handleSubmit(event)} >
                         <img src={logo} alt="" style={{width: 150, height: 150, borderRadius: 75, marginLeft: 175, marginBottom: 70}} />
@@ -121,8 +141,18 @@ export default class Register_User extends React.Component{
                         <DatePicker
                             className="datepicker"
                             dateFormat="yyyy-MM-dd"
-                            selected={this.state.date_naissance}
-                            onChange={(date) => this.setState({date_naissance: date})}
+                            selected={this.state.calendar_date}
+                            maxDate={new Date()}
+                            showYearDropdown
+                            scrollableYearDropdown
+                            showMonthDropdown
+                            scrollableMonthYearDropdown
+                            onChange={(date) => {
+                                this.setState({
+                                    calendar_date: date,
+                                    date_naissance: this.formatDate(date.getDate(), date.getMonth(), date.getFullYear())
+                                })
+                            }}
                         />
 
                         <div className="form-group">

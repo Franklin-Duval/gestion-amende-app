@@ -31,6 +31,7 @@
     font-size: 20px;
     background: transparent;
     color: white;
+    outline: none;
 }
 
 .text-field::placeholder{
@@ -44,11 +45,17 @@
     font-size: 25px;
     color: white;
     background-image: linear-gradient(to right, #ff4081, #b702ff);
+    outline: none;
     
 }
 
 .button:hover{
     background-image: linear-gradient(to right, #b702ff, #ff4081);
+    outline: none;
+}
+
+.button:active{
+    outline: none;
 }
 
 .dropdown{
@@ -62,10 +69,12 @@
     border-right: 0px;
     border-bottom: 2px solid white;
     margin-bottom: 30px;
+    outline: none;
 }
 
 .dropdown:focus{
     color: black;
+    outline: none;
 }
 
 .datepicker{
@@ -79,4 +88,5 @@
     border-right: 0px;
     border-bottom: 2px solid white;
     margin-bottom: 30px;
+    outline: none;
 }

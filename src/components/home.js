@@ -73,6 +73,7 @@ const styles = {
     link:{
         display: 'block',
         color: 'black',
-        fontSize: 20
+        fontSize: 25,
+        fontFamily: 'Barlow Condensed'
     }
 }
