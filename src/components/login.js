@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 import API_URL from '../assets/constant'
 import '../assets/css/forms.css'
@@ -32,6 +33,23 @@ export default class Login extends React.Component{
         .then((response) => response.json())
         .then((responseJson) => {
             console.log(responseJson)
+            if (responseJson.login === "FAILED"){
+                alert(responseJson.message)
+            }
+            else if (responseJson.login === "SUCCESS"){
+                if (responseJson.type === "admin"){
+                    this.setState({
+                        finish: true,
+                        type: "admin"
+                    })
+                }
+                else{
+                    this.setState({
+                        finish: true,
+                        type: "policier"
+                    })
+                }
+            }
 
         })
         .catch((error) =>{
@@ -41,6 +59,14 @@ export default class Login extends React.Component{
 
     render(){
         return(
+            this.state.finish ?
+                this.state.type === "admin"
+                ?
+                    <Redirect to="/amende" />
+                :
+                    <Redirect to="/infraction" />
+            :
+
             <div className="container-fluid body" >
                 <form className="forms" onSubmit={(event) => this.handleSubmit(event)} >
                     <img src={logo} alt="" style={{width: 150, height: 150, borderRadius: 75, marginLeft: 175, marginBottom: 70}} />

@@ -38,8 +38,28 @@ export default class Amande extends React.Component{
         })
     }
 
-    handleSubmit = () => {
-        console.log(this.state)
+    handleSubmit = (event) => {
+        event.preventDefault()
+        fetch(API_URL + 'amende/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                nom_amende: this.state.new_nom_amende,
+                desciption: this.state.new_description,
+                prix_penalite: this.state.new_prix,
+            })
+
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            console.log(responseJson)
+        })
+        .catch((error) =>{
+            console.log(error)
+        })
     }
 
     render(){
