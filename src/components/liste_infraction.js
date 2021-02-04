@@ -147,7 +147,7 @@ export default class ListInfraction extends React.Component{
                                         <td>{item.fuyard} </td>
                                         <td>{item.amende} </td>
                                         <td>{item.policier} </td>
-                                        <td>{item.date} </td>
+                                        <td>{item.date.slice(0, 21).replace('T', ' -Hr- ')} </td>
                                         <td>{item.lieux} </td>
                                         <td>{item.nombre_infraction} </td>
                                         <td>{item.paye} </td>

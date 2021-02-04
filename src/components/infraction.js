@@ -1,7 +1,7 @@
 import React from 'react'
 import '../assets/css/infraction.css'
 import API_URL from '../assets/constant'
-
+import user from '../assets/images/User.png'
 
 export default class Infraction extends React.Component{
 
@@ -9,13 +9,13 @@ export default class Infraction extends React.Component{
         super(props)
         this.state = {
             // Data
-            cni: undefined,
+            cni: "",
             user: '',
             matricule: '',
             infractions: [],
             amendes: [],
             policiers: [],
-            amende_choisie: undefined,
+            amende_choisie: "",
     
             // States
             infrac_is_loading: false,
@@ -286,7 +286,7 @@ export default class Infraction extends React.Component{
                         <div className="card-header"> Informations </div>
                         <div className="card-body row">
                             <div className="col-3">
-                                <img src="../assets/images/User.png" className="rounded" alt="introuvable!"/>
+                                <img src={user} style={{width: 100, height: 100, borderRadius: 50}} className="rounded" alt="introuvable!"/>
                             </div>
 
                             <div className="form col">
@@ -313,19 +313,23 @@ export default class Infraction extends React.Component{
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.list_is_loading ?
-                                    <div className="spinner-border text-primary align-self-center" /> :
-                                (this.state.infractions.map((inf) => {
-                                return(
-                                    <tr className="table-row" key={inf.id}>
-                                        <td className="id">{inf.id} </td>
-                                        <td> {inf.amende } </td>
-                                        <td> {inf.policier} </td>
-                                        <td> {inf.date} </td>
-                                        <td> {inf.lieux} </td>
-                                    </tr>
-                                )
-                                })) }
+                                {
+                                    this.state.list_is_loading
+                                    ?
+                                        <div className="spinner-border text-primary align-self-center" />
+                                    :
+                                    this.state.infractions.map((inf) => {
+                                        return(
+                                            <tr className="table-row" key={inf.id}>
+                                                <td className="id">{inf.id} </td>
+                                                <td> {inf.amende } </td>
+                                                <td> {inf.policier} </td>
+                                                <td> {inf.date.slice(0, 21).replace('T', ' -Hr- ')} </td>
+                                                <td> {inf.lieux} </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -386,7 +390,7 @@ export default class Infraction extends React.Component{
                                 </select>
 
                                 <p className="infraction-number mt-4">
-                                    Montant : {this.state.amende_choisie === undefined ? 0 : this.state.amende_choisie.prix_penalite} XAF
+                                    Montant : {this.state.amende_choisie === "" ? 0 : this.state.amende_choisie.prix_penalite} XAF
                                 </p>
                             </div>
                             
